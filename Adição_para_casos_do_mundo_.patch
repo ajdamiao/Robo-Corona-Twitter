@@ -1,0 +1,16 @@
+Index: src/com/company/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/Main.java	(revision 725e5721aa94f8e7950d6b7ecee68b04872cdb5b)
++++ src/com/company/Main.java	(date 1587926179796)
+@@ -100,7 +100,7 @@
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+-            System.out.println("Tweet enviado");
++            System.out.println("Tweet enviado ");
+             Thread.sleep(3600000);
+         }
+     }
