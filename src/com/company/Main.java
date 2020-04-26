@@ -7,7 +7,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.*;
-import java.net.http.HttpClient;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +17,14 @@ public class Main {
     private static Object HttpUtility;
 
     public static <NameValuePair, HttpPost> void main(String[] args) throws IOException, InterruptedException {
+
+        System.out.println("===============================");
+        System.out.println("         Bot Iniciado          ");
+        System.out.println("===============================");
         while (true) {
             final String url = "https://www.worldometers.info/coronavirus/country/brazil/";
             String numeroCasos = null, mortes = null, curados = null;
+
             try {
                 final Document document = Jsoup.connect(url).get();
                 String informacoes = null;
