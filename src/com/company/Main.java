@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -26,6 +28,7 @@ public class Main {
             final String url2 = "https://www.worldometers.info/coronavirus/";
             String numeroCasos = null, mortes = null, curados = null;
             String numeroCasosMundo = null, mortesMundo = null, curadosMundo = null;
+            SimpleDateFormat horario = new SimpleDateFormat("hh:mm a");
 
             try {
                 //BRASIL
@@ -67,17 +70,17 @@ public class Main {
                         curadosMundo = informacoes2;
                     }
                 }
-                String mensagem2 = ("Total de casos no mundo:\n" + "Casos confirmados: " + numeroCasosMundo + "\n" + "Óbitos: " + mortesMundo + "\n" + "Recuperações: " + curadosMundo + "\n"+ "#coronavirus #corona" + "\n\n");
+                String mensagem2 = ("Total de casos no mundo:\n" + "Casos confirmados: " + numeroCasosMundo + "\n" + "Óbitos: " + mortesMundo + "\n" + "Recuperações: " + curadosMundo  + "\n" + "Horario: " + horario.format(new Date()) + "\n" + "#coronavirus #corona");
                 // FIM MUNDO
 
                 System.out.println(mensagem);
                 System.out.println(mensagem2);
 
                 // HTTP REQUEST
-                URL urlZapier = new URL("https://hooks.zapier.com/hooks/catch/7355727/o5xs2za");
+                URL urlZapier = new URL("");
                 URLConnection con = urlZapier.openConnection();
                 HttpURLConnection http = (HttpURLConnection) con;
-                http.setRequestMethod("POST"); // PUT is another valid option
+                http.setRequestMethod("POST");
                 http.setDoOutput(true);
 
                 Map<String, String> arguments = new HashMap<>();
@@ -100,7 +103,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println("Tweet enviado ");
+            System.out.println("Tweet enviado \n");
             Thread.sleep(3600000);
         }
     }
